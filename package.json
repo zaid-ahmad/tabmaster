@@ -1,0 +1,28 @@
+{
+  "name": "tabmaster",
+  "version": "1.0.0",
+  "description": "",
+  "main": "background.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zaidahmad25/tabmaster.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zaidahmad25/tabmaster/issues"
+  },
+  "homepage": "https://github.com/zaidahmad25/tabmaster#readme",
+  "dependencies": {
+    "@firebase/auth": "^0.21.5",
+    "@firebase/firestore": "^3.9.0",
+    "firebase": "^9.18.0"
+  },
+  "devDependencies": {
+    "rollup": "^3.20.2",
+    "rollup-plugin-chrome-extension": "^3.6.12"
+  }
+}
