@@ -1,53 +1,129 @@
-const itemsPerPage = 3;
-const items = document.querySelectorAll('.sessions li');
-const numPages = Math.ceil(items.length / itemsPerPage);
 const button = document.querySelector('.group-btn');
+const nametabcont = document.querySelector('.name-tab');
+const nameInput = document.querySelector('.gname');
+const container = document.querySelector('.container');
+const tabsListElement = document.querySelector('#sessions-list');
+const prevButton = document.querySelector('#prev');
+const nextButton = document.querySelector('#next');
+const introTxt = document.querySelector('#intro');
+const manageSessionLink = document.querySelector('.manage');
+const paginationCont = document.querySelector('.pagination');
 
-function createPagination() {
-  const pagination = document.querySelector('.pagination ul');
-  for (let i = 1; i <= numPages; i++) {
-    const li = document.createElement('li');
-    const a = document.createElement('a');
-    a.href = '#';
-    a.textContent = i;
-    li.appendChild(a);
-    pagination.appendChild(li);
-  }
-  pagination.querySelector('a').classList.add('active');
-}
-createPagination();
 
-function showPage(pageNum) {
-  const start = (pageNum - 1) * itemsPerPage;
-  const end = start + itemsPerPage;
-  items.forEach((item, index) => {
-    if (index >= start && index < end) {
-      item.style.display = 'block';
-    } else {
-      item.style.display = 'none';
-    }
-  });
-}
+const tabGroups = [];
+let currentPage = 1;
 
-const paginationLinks = document.querySelectorAll('.pagination a');
-paginationLinks.forEach(link => {
-  link.addEventListener('click', function(event) {
-    event.preventDefault();
-    const pageNum = parseInt(link.textContent);
-    paginationLinks.forEach(link => link.classList.remove('active'));
-    link.classList.add('active');
-    showPage(pageNum);
-  });
-});
-
-paginationLinks[0].click();
+function Tabs(tabsArr, grpName) {
+  this.tabsArr = tabsArr;
+  this.grpName = grpName;
+} 
 
 button.addEventListener('click', () => {
+  nametabcont.classList.toggle('toggleDisplay');
+  container.style.height = '445px';
+  document.documentElement.style.height = "445px";
+  nameInput.value = '';
+});
+
+const displayTabs = (tabGroups, pageNumber) => {
+  // Calculate the starting and ending index for the tabs to display
+  const startIndex = (pageNumber - 1) * 3;
+  const endIndex = startIndex + 3;
+
+  // Clear the existing tab list
+  tabsListElement.innerHTML = '';
+
+  // Add the tabs to the list
+  for (let i = startIndex; i < endIndex && i < tabGroups.length; i++) {
+    const tab = tabGroups[i];
+    const tabElement = document.createElement('li');
+    const sessElement = document.createElement('div');
+    sessElement.className = 'sess';
+    const tabText = document.createElement('p');
+    tabText.textContent = tab.grpName;
+    sessElement.appendChild(tabText);
+    tabElement.appendChild(sessElement);
+    tabsListElement.appendChild(tabElement);
+  }
+}
+
+prevButton.addEventListener('click', () => {
+  if (currentPage > 1) {
+    currentPage--;
+    displayTabs(tabGroups, currentPage);
+  }
+});
+
+nextButton.addEventListener('click', () => {
+  const numPages = Math.ceil(tabGroups.length / 3);
+  if (currentPage < numPages) {
+    currentPage++;
+    displayTabs(tabGroups, currentPage);
+  }
+});
+
+displayTabs(tabGroups, currentPage);
+
+const buildGroup = (urls, val) => {
+  let newGroup = new Tabs(urls, val);
+  tabGroups.push(newGroup);
+
+  if (isSessionExists(tabGroups, newGroup) && tabGroups.length > 1) {
+    alert("Oops! It looks like you've already grouped these tabs. Try grouping some new tabs.")
+    newGroup = null;
+    tabGroups.pop();
+  }
+  else {
+    displayTabs(tabGroups, 1);
+    // Send this group to firebase.js in the form of messages...
+    console.log('GROUP ADDED')
+    console.log(newGroup.tabsArr, newGroup.grpName);
+  }
+}
+
+const isSessionExists = (sessionArray, newSession) => {
+  for (let i = 0; i < sessionArray.length; i++) {
+    const session = sessionArray[i];
+    if (arraysEqual(session.tabsArr, newSession.tabsArr)) {
+      return true;
+    }
+  }
+  return false;
+}
+
+const arraysEqual = (a, b) => {
+  if (a === b) return true;
+  if (a == null || b == null) return false;
+  if (a.length !== b.length) return false;
+
+  for (let i = 0; i < a.length; ++i) {
+    if (a[i] !== b[i]) return false;
+  }
+  return true;
+}
+
+
+nameInput.addEventListener('keydown', (e) => {
+  if (e.code === "Enter") { 
+    nametabcont.classList.toggle('toggleDisplay');  
+    manageSessionLink.style.display = 'block';
+    paginationCont.style.display = 'flex';
+    introTxt.remove();
+    container.style.height = '445px';
+    document.body.style.height = '445px';
+    document.documentElement.style.height = "445px";
+    let val = nameInput.value;
+    let urls = [];
+
     chrome.tabs.query({}, function(tabs) {
-        let urls = [];
-        for (let tab of tabs) {
-          urls.push(tab.url);
-        }
-        console.log(urls);
-      });
-})
+      for (let tab of tabs) {
+        urls.push(tab.url);
+      }
+    });
+
+    buildGroup(urls, val);
+    // Check if prev grps have same urls
+    // if yes, delete that the newly duplicate created group
+    // if no, fine
+  }
+});

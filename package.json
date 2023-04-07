@@ -2,16 +2,16 @@
   "name": "tabmaster",
   "version": "1.0.0",
   "description": "",
-  "main": "background.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "rollup -c -w",
+    "build": "rollup -c",
+    "release": "cross-env NODE_ENV=production rollup -c"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/zaidahmad25/tabmaster.git"
   },
-  "author": "",
-  "license": "ISC",
   "bugs": {
     "url": "https://github.com/zaidahmad25/tabmaster/issues"
   },
@@ -19,10 +19,15 @@
   "dependencies": {
     "@firebase/auth": "^0.21.5",
     "@firebase/firestore": "^3.9.0",
-    "firebase": "^9.18.0"
+    "cross-env": "^7.0.3",
+    "firebase": "^9.18.0",
+    "rollup-plugin-zip": "^1.0.3"
   },
   "devDependencies": {
+    "@rollup/plugin-commonjs": "^24.0.1",
+    "@rollup/plugin-node-resolve": "^15.0.1",
     "rollup": "^3.20.2",
     "rollup-plugin-chrome-extension": "^3.6.12"
-  }
+  },
+  "type": "module"
 }

@@ -12,8 +12,4 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 
-chrome.runtime.onInstalled.addListener(function(details) {
-    if (details.reason == "install") {
-      chrome.tabs.create({ url: "login.html" });
-    }
-  });
+console.log(app)

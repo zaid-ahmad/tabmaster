@@ -6,12 +6,19 @@
         <link rel="stylesheet" href="popup.css">
     </head>
 
-    <body> 
+    <body>
         <div class="container">
-            <div class="session-save">
+            <div class="name-tab toggleDisplay">
+                <label for="grp-name" class="label-con">
+                    <img src="assets/information.png">
+                    <p>Hit enter to create a session</p>
+                </label>
+                <input type="text" name="grp-name" id="grp-name" placeholder="Name your group" class="gname" required>
+            </div>
+            <!-- <div class="session-save">
                 <img src="assets/check.svg">
                 <p>Session saved automatically</p>
-            </div>
+            </div> -->
 
             <div class="btn-container">
                 <div class="group-btn">
@@ -21,54 +28,31 @@
             </div>
 
             <div class="checkbox">
-                <input type="checkbox" name="custom" id="custom">
+                <input type="checkbox" name="custom" id="custom" checked>
                 <label for="custom">Select all tabs</label>
             </div>
 
             <div class="sessions-sec">
                 <div class="sess-txt-cont">
                     <p>Your sessions</p>
-                    <img src="assets/link.png">
                 </div>
 
                 <div class="sessions">
-                    <ul>
+                    <p id="intro">Your sessions will appear here...</p>
+                    <ul id="sessions-list">
                         <li>
-                            <div class="sess">
-                                <p>Workday</p>
-                            </div>
-                        </li>
-
-                        <li>
-                            <div class="sess">
-                                <p>Thesis Data Collection</p>
-                            </div>
-                        </li>
-
-                        <li>
-                            <div class="sess">
-                                <p>Entertainment</p>
-                            </div>
-                        </li>
-
-                        <li>
-                            <div class="sess">
-                                <p>Universitiy</p>
-                            </div>
-                        </li>
-
-                        <li>
-                            <div class="sess">
-                                <p>Application forms</p>
-                            </div>
                         </li>
                     </ul>
                 </div>
-
+                <div class="manage">
+                    <a href="#">Manage your sessions</a>
+                </div>
                 <div class="pagination">
-                    <ul>
+                    <ul id="pagination-list">
+                      <li><button id="prev">Previous</button></li>
+                      <li><button id="next">Next</button></li>
                     </ul>
-                </div>
+                  </div>
             </div>
 
             <div class="footer">
@@ -77,8 +61,5 @@
             </div>
         </div>
     <script src="popup.js" defer></script>
-    <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-firestore.js"></script>
 </body>       
 </html>
