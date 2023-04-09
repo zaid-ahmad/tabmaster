@@ -9,7 +9,6 @@ const introTxt = document.querySelector('#intro');
 const manageSessionLink = document.querySelector('.manage');
 const paginationCont = document.querySelector('.pagination');
 
-
 const tabGroups = [];
 let currentPage = 1;
 
@@ -38,9 +37,29 @@ const displayTabs = (tabGroups, pageNumber) => {
     const tab = tabGroups[i];
     const tabElement = document.createElement('li');
     const sessElement = document.createElement('div');
+    sessElement.dataset.groupIndex = i;
     sessElement.className = 'sess';
     const tabText = document.createElement('p');
     tabText.textContent = tab.grpName;
+
+    sessElement.addEventListener('click', function() {
+      // const groupIndex = element.getAttribute('data-group-index');
+      chrome.windows.create({
+        type: 'normal',
+        focused: true
+      }, function(window) {
+        // add tabs to the window
+        const urls = tabGroups[i].tabsArr;
+        for (const url of urls) {
+          chrome.tabs.create({
+            url: url,
+            windowId: window.id
+          });
+        }
+      });
+    }
+  );
+
     sessElement.appendChild(tabText);
     tabElement.appendChild(sessElement);
     tabsListElement.appendChild(tabElement);
@@ -102,7 +121,6 @@ const arraysEqual = (a, b) => {
   return true;
 }
 
-
 nameInput.addEventListener('keydown', (e) => {
   if (e.code === "Enter") { 
     nametabcont.classList.toggle('toggleDisplay');  
@@ -121,9 +139,6 @@ nameInput.addEventListener('keydown', (e) => {
       }
     });
 
-    buildGroup(urls, val);
-    // Check if prev grps have same urls
-    // if yes, delete that the newly duplicate created group
-    // if no, fine
+    buildGroup(urls, val);  
   }
 });
