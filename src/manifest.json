@@ -2,11 +2,7 @@
   "name": "TabMaster",
   "version": "0.0.1",
   "description": "Master your tabs, master your productivity.",
-  "permissions": ["identity", "storage", "tabs", "activeTab"],
-  "background": {
-    "service_worker": "firebase.js"
-  },
-  "host_permissions": ["*://*/"],
+  "permissions": ["identity", "identity.email", "tabs"],
   "action": {
     "default_icon": {
       "16": "assets/logo-16.png",
@@ -18,14 +14,6 @@
     },
     "default_title": "TabMaster",
     "default_popup": "popup.html"
-  },  
-  "content_scripts": [
-    {
-      "matches": ["*://*/"],
-      "js": ["app.js"],
-      "css": ["popup.css"],
-      "run_at": "document_end"
-    }
-  ],
+  }, 
   "manifest_version": 3
 }

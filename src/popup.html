@@ -1,9 +1,10 @@
+<!DOCTYPE html>
 <html>
     <head>
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="popup.css">
+        <link rel="stylesheet" href="style.css">
     </head>
 
     <body>
@@ -13,7 +14,7 @@
                     <img src="assets/information.png">
                     <p>Hit enter to create a session</p>
                 </label>
-                <input type="text" name="grp-name" id="grp-name" placeholder="Name your group" class="gname" required>
+                <input type="text" name="grp-name" id="grp-name" placeholder="Name your group" class="gname" autocomplete="off" required>
             </div>
             <!-- <div class="session-save">
                 <img src="assets/check.svg">
@@ -36,15 +37,15 @@
                     <p id="intro">All groups will appear here...</p>
                     <ul id="sessions-list">
                         <li>
-                            <div class="sess">
+                            <!-- <div class="sess">
                                 <p>TabMaster</p>
-                            </div>
+                            </div> -->
                         </li>
                     </ul>
                 </div>
-                <div class="manage">
+                <!-- <div class="manage">
                     <a href="#">Manage your sessions</a>
-                </div>
+                </div> -->
                 <div class="pagination">
                     <ul id="pagination-list">
                       <li><button id="prev">Previous</button></li>
@@ -54,16 +55,11 @@
             </div>
 
             <div class="footer">
-                <p>Signed in as Zaid Ahmad</p>
-                <img src="assets/logout.svg">
+                <p>
+                    <span id="loggedinText"></span>
+                </p>
             </div>
         </div>
-    <script src="popup.js" defer></script>
+    <script src="script.js" defer></script>
 </body>       
 </html>
-
-<!--
-    footer: display flex
-    sessions: nothing
-
--->
