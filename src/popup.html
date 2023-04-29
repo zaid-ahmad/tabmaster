@@ -14,12 +14,12 @@
                     <img src="assets/information.png">
                     <p>Hit enter to create a session</p>
                 </label>
-                <input type="text" name="grp-name" id="grp-name" placeholder="Name your group" class="gname" autocomplete="off" required>
+                <input type="text" name="grp-name" id="grp-name" placeholder="Name your group (tab to cancel)" class="gname" autocomplete="off" required>
             </div>
             <!-- <div class="session-save">
                 <img src="assets/check.svg">
                 <p>Session saved automatically</p>
-            </div> -->
+            </div> -->  
 
             <div class="btn-container">
                 <div class="group-btn">
@@ -30,17 +30,30 @@
 
             <div class="sessions-sec">
                 <div class="sess-txt-cont">
-                    <p>Your groups</p>
+                    <p id="your-groups" class="toggleDisplay">Your groups</p>
                 </div>
 
                 <div class="sessions">
-                    <p id="intro">All groups will appear here...</p>
+                    <p id="intro">
+                        Start grouping your sessions and see them appear here!
+                        <!-- <img src="assets/bin.svg"> -->
+                    </p>
                     <ul id="sessions-list">
-                        <li>
-                            <!-- <div class="sess">
+                        <!-- <li>
+                            <div class="sess">
                                 <p>TabMaster</p>
-                            </div> -->
-                        </li>
+                            </div>  
+                            <div class="edit-icon toggleDisplay">
+                                <img src="assets/edit-2.png">
+                            </div>
+                            <div class="new-name">
+                                <input type="text" autocomplete="off" value="TabMaster">
+                            </div>
+                            <div class="action-icons">
+                                <img src="assets/tick.svg" id="tick">
+                                <img src="assets/bin.svg" id="rem">
+                            </div>
+                        </li> -->
                     </ul>
                 </div>
                 <!-- <div class="manage">
@@ -55,11 +68,29 @@
             </div>
 
             <div class="footer">
+                <div class="popup toggleDisplay">
+                    <div class="cross">
+                        <img src="assets/cross.svg">
+                    </div>
+                    <div class="message">
+                        <p id="popupmsg">
+                        </p>
+                    </div>
+                </div>
                 <p>
+                    <span id="line"></span>
                     <span id="loggedinText"></span>
                 </p>
             </div>
         </div>
     <script src="script.js" defer></script>
-</body>       
+</body>
 </html>
+
+<!--
+    In v4-
+    1. Fix update issue.
+    2. From Figma, make the final version.
+    3. Test, test, test. publish. 
+
+-->

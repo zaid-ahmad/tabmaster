@@ -1,6 +1,6 @@
 {
   "name": "TabMaster",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "Master your tabs, master your productivity.",
   "permissions": ["identity", "identity.email", "tabs"],
   "action": {
