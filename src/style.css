@@ -104,7 +104,7 @@ body, html {
     align-items: center;
     color: #fff;
     gap: 10px;
-    margin-bottom: 3%;
+    margin-bottom: 1%;
     cursor: pointer;
     transition: .3s;
     border: 2px solid rgba(255, 255, 255, 0.24);
@@ -130,16 +130,19 @@ body, html {
 .sessions {
     max-height: 200px;
     overflow-x: hidden;
-    width: 200px;
+    width: 300px;
     margin-top: -14px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .sessions #intro {
     color: #fff;
     font-weight: 400;
     line-height: 25px;
-    padding-top: 5%;
     font-size: 16px;
+    width: 245px;
     text-align: center;
 }
 
@@ -147,6 +150,10 @@ body, html {
     list-style-type: none;
     padding: 0;
     margin: 0;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
 }
 
 .sessions li {
@@ -213,6 +220,65 @@ body, html {
     font-size: 13px;
 }
 
+.manage-sess {
+    width: 250px;
+    height: 45px;
+
+    justify-content: flex-start;
+    align-items: center;
+
+    cursor: default;
+
+}
+
+.manage-sess p {
+    margin-left: -20px;
+    font-size: 16px;
+    padding: 0 5px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.manage-sess:hover {
+    background: #313842;
+}
+
+.manage-sess img {
+    width: 20px;
+    height: auto;
+}
+
+.manage-sess .icon {
+    width: 37px;
+    height: 40px;
+    border-radius: 5px;
+    margin: 2%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    cursor: pointer;
+}
+
+.manage-sess #editi {
+    margin-right: 28px;
+}
+
+.manage-sess .delete {
+    background-color: #FF4757;
+}
+
+.manage-sess .edit {
+    background-color: #FFA502;
+}
+
+.manage-sess #drop {
+    margin-left: 10px;
+    cursor: pointer;
+}
+
 .footer {
     margin-top: auto;
     display: flex;
@@ -244,9 +310,6 @@ body, html {
 } */
 
 .sess-txt-cont {
-    display: flex;
-    justify-content: center;
-    align-content: center;
     margin: 10%;
 }
 
@@ -254,21 +317,39 @@ body, html {
     font-size: 16px;
     color: #fff;
     font-weight: 500;
+    width: 102px;
 }
 
-.sess-txt-cont img{
-    width: 12px;
-    height: 12px;
-}
-
-.manage {
-    text-align: center;
-    padding-top: 10%;
-    margin-bottom: -11%;
-}
-
-.manage a {
+#manage-btn {
+    background: rgba(255, 255, 255, 0.16);
+    box-shadow: 0px 2px 4px rgba(27, 27, 27, 0.16);
+    backdrop-filter: blur(4px);
+    /* Note: backdrop-filter has minimal browser support */
+    width: 70px;
+    height: 25px;
+    border-radius: 4px;
+    justify-content: center;
+    align-items: center;
     color: #fff;
+    font-size: 12px;
+    padding: 1% 5%;
+    cursor: pointer;
+    transition: .3s;
+    font-weight: lighter;
+}
+
+#manage-btn:hover {
+    background: rgba(255, 255, 255, 0.08)
+}
+
+.heading-stuff {
+    width: 238px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+
+    margin: 10px 0px 10px 25px;
 }
 
 .edit-icon {
@@ -394,4 +475,35 @@ body, html {
 .message {
     width: 240px;
     margin-top: 5%;
+}
+
+select {
+    width: 60px;
+    padding: 3px;
+    font-size: 16px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border: none;
+    border-radius: 5px;
+    height: 28px;
+    cursor: pointer;
+    font-size: 12px;
+    margin-left: 10px;
+}
+
+option {
+    font-size: 14px;
+}
+
+select::-ms-expand {
+    display: none; /* Remove default arrow in Internet Explorer 10 and 11 */
+}
+
+/* Target Internet Explorer 9 to undo the custom arrow */
+@media screen and (min-width:0\0) {
+    select {
+        background: none\9;
+        padding: 5px\9;
+    }
 }

@@ -29,23 +29,39 @@
             </div>
 
             <div class="sessions-sec">
-                <div class="sess-txt-cont">
-                    <p id="your-groups" class="toggleDisplay">Your groups</p>
+
+                <div class="heading-stuff">
+                    <div class="sess-txt-cont">
+                        <p id="your-groups" class="toggleDisplay">Your groups:</p>
+                    </div>
+
+                    <div id="manage-btn" class="toggleDisplay">
+                        <p>Manage</p>
+                    </div>
                 </div>
 
                 <div class="sessions">
                     <p id="intro">
                         Start grouping your sessions and see them appear here!
-                        <!-- <img src="assets/bin.svg"> -->
                     </p>
+
                     <ul id="sessions-list">
                         <!-- <li>
-                            <div class="sess">
+                            <div class="sess manage-sess">
+                                <div class="delete icon">
+                                    <img src="assets/delete.png">
+                                </div>
+
+                                <div class="edit icon" id="editi">
+                                    <img src="assets/editing.png">
+                                </div>
+                                
                                 <p>TabMaster</p>
+
+                                <select name="urls" id="urls" class="dropdown">
+                                </select>
+                                
                             </div>  
-                            <div class="edit-icon toggleDisplay">
-                                <img src="assets/edit-2.png">
-                            </div>
                             <div class="new-name">
                                 <input type="text" autocomplete="off" value="TabMaster">
                             </div>
@@ -56,9 +72,6 @@
                         </li> -->
                     </ul>
                 </div>
-                <!-- <div class="manage">
-                    <a href="#">Manage your sessions</a>
-                </div> -->
                 <div class="pagination">
                     <ul id="pagination-list">
                       <li><button id="prev">Previous</button></li>
@@ -89,8 +102,9 @@
 
 <!--
     In v4-
-    1. Fix update issue.
-    2. From Figma, make the final version.
-    3. Test, test, test. publish. 
+    1. Fix update issue. [done]
+    2. From Figma, make the final version. [done]
+    3. Populate dropdown. [done]
+    5. Test, test, test. publish. 
 
 -->
