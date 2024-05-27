@@ -1,38 +1,50 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="style.css" />
     </head>
 
     <body>
         <div class="container">
             <div class="name-tab toggleDisplay">
                 <label for="grp-name" class="label-con">
-                    <img src="assets/information.png">
+                    <img src="assets/information.png" />
                     <p>Hit enter to create a session</p>
                 </label>
-                <input type="text" name="grp-name" id="grp-name" placeholder="Name your group (tab to cancel)" class="gname" autocomplete="off" required>
+                <input
+                    type="text"
+                    name="grp-name"
+                    id="grp-name"
+                    placeholder="Name your group (tab to cancel)"
+                    class="gname"
+                    autocomplete="off"
+                    required
+                />
             </div>
             <!-- <div class="session-save">
                 <img src="assets/check.svg">
                 <p>Session saved automatically</p>
-            </div> -->  
+            </div> -->
 
             <div class="btn-container">
                 <div class="group-btn">
                     <p>Group this session</p>
-                    <img src="assets/stack.svg">
+                    <img src="assets/stack.svg" />
                 </div>
             </div>
 
             <div class="sessions-sec">
-
                 <div class="heading-stuff">
                     <div class="sess-txt-cont">
-                        <p id="your-groups" class="toggleDisplay">Your groups:</p>
+                        <p id="your-groups" class="toggleDisplay">
+                            Your groups:
+                        </p>
                     </div>
 
                     <div id="manage-btn" class="toggleDisplay">
@@ -74,20 +86,19 @@
                 </div>
                 <div class="pagination">
                     <ul id="pagination-list">
-                      <li><button id="prev">Previous</button></li>
-                      <li><button id="next">Next</button></li>
+                        <li><button id="prev">Previous</button></li>
+                        <li><button id="next">Next</button></li>
                     </ul>
-                  </div>
+                </div>
             </div>
 
             <div class="footer">
                 <div class="popup toggleDisplay">
                     <div class="cross">
-                        <img src="assets/cross.svg">
+                        <img src="assets/cross.svg" />
                     </div>
                     <div class="message">
-                        <p id="popupmsg">
-                        </p>
+                        <p id="popupmsg"></p>
                     </div>
                 </div>
                 <p>
@@ -96,15 +107,6 @@
                 </p>
             </div>
         </div>
-    <script src="script.js" defer></script>
-</body>
+        <script src="script.js" defer></script>
+    </body>
 </html>
-
-<!--
-    In v4-
-    1. Fix update issue. [done]
-    2. From Figma, make the final version. [done]
-    3. Populate dropdown. [done]
-    5. Test, test, test. publish. 
-
--->

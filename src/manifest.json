@@ -1,6 +1,6 @@
 {
   "name": "TabMaster",
-  "version": "0.0.3",
+  "version": "0.0.5",
   "description": "Master your tabs, master your productivity.",
   "permissions": ["identity", "identity.email", "tabs"],
   "action": {
@@ -14,6 +14,6 @@
     },
     "default_title": "TabMaster",
     "default_popup": "popup.html"
-  }, 
+  },
   "manifest_version": 3
 }
